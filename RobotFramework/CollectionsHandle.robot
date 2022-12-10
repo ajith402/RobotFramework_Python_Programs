@@ -10,6 +10,7 @@ Handle Collections
     Adding values to the List           ${city_Hyderabad}       ${city_Banglore}    ${city_Mumbai}
     Extract the Values from a List      ${list_Cities}
     Inserting values in to the List     ${list_Cities}      1    ${city_Delhi}
+    Compare Two lists                   ${list_Cities}          ${cities}
 
 *** Keywords ***
 
@@ -45,10 +46,18 @@ Inserting values in to the List
 
     Log to Console          ${list}
 
+Compare Two lists
+    [Arguments]         ${list_Expected}        ${list_Actual}
+
+    Lists Should Be Equal       ${list_Expected}        ${list_Actual}
+
 
 *** Variables ***
 ${city_Hyderabad}               Hyderabad
 ${city_Banglore}                Banglore
 ${city_Mumbai}                  Mumbai
 ${city_Delhi}                   Delhi
+
+@{cities}               Hyderabad   Delhi       Banglore        Mumbai
+
 
