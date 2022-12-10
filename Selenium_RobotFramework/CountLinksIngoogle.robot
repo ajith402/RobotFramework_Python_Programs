@@ -10,11 +10,19 @@ Resource                ${EXECDIR}/Utilities/ApplicationLaunch.robot
 *** Test Cases ***
 
 Count Links On Google Page
+    Get the Title of Google Page
     Search for Text and Click on Submit Button
     Count the Links on Search Results
 
 
 *** Keywords ***
+
+Get the Title of Google Page
+    ${title}=       Get title
+    Log to console       title: ${title}
+
+    Title Should Be        ${expecte_Title}
+
 
 Search for Text and Click on Submit Button
     Wait until element is visible           ${Google_Search_Box}        20s
@@ -38,6 +46,7 @@ Count the Links on Search Results
 *** Variables ***
 ${Browser}         Chrome
 ${URL}                  https://google.com
+${expecte_Title}           Google
 ${Google_Search_Box}    //input[@name='q']
 ${Search_Text}          Selenium
 ${Google_Submit_Button}         //input[@name='btnI']
