@@ -8,12 +8,11 @@ Test Teardown       Close Browser
 *** Test Cases ***
 
 Validate Element Text
-    Launch Browser and Navigate to Website
     Check and Validate the Heading
 
 *** Keywords ***
 Launch Browser and Navigate to Website
-    Open Browser        ${URL}      ${Browser}          executable_path=Driver/chromedriver.exe
+    Open Browser        ${URL}      ${Browser}          executable_path=${Path}
 
 
 Check and Validate the Heading
@@ -22,3 +21,4 @@ Check and Validate the Heading
 *** Variables ***
 ${URL}              https://www.w3schools.com
 ${Browser}          Chrome
+${Path}                              Driver/chromedriver.exe
